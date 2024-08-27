@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Word Quest</title>
+    <link href="style.css" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.all.min.js"></script>
+</head>
+
+<body>
+    <audio id="music" src="cute.mp3" autoplay loop></audio>
+
+    <button class="info-button" onclick="displayInfo()">
+        <img src="info.png" alt="Info Icon">
+    </button>
+
+    <div id="InfoCard" class="card-overlay" style="display: none;">
+        <div class="card">
+            <h1>Word Quest</h1><br>
+            <h4>Created By: Vikash Mahto</h4>
+            <h5>Pursuing Computer Science & Engineering <a href="https://www.rrsdcebgs.ac.in/" target="_blank">@RRSDCE Begusarai (BEU University)</a></h5><br>
+            <p>Github: <a href="https://github.com/Vikash4You" target="_blank">Github.com/in/Vikash4You</a></p>
+            <p>LinkedIn: <a href="https://www.linkedin.com/in/vikash-mahto-6b7080263?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app"
+                    target="_blank">linkedin.com/in/vikash-mahto-6b7080263</a></p>
+            <button class="button-89" onclick="closeInfo()">Close</button>
+        </div>
+    </div>
+
+    <div class="root">
+        <div class="title">
+            <h1> Word Quest</h1>
+            <div id="scrambled">
+                <h2 id="scrambleWord">Word</h2>
+                <p id="hint"></p>
+            </div>
+            <div id="form">
+                <input id="input" type="text" placeholder="Guess the correct word" />
+            </div>
+            <h3 id="output">Result:</h3>
+            <div class="foot">
+                <button type="button" onclick="check()">Check</button>
+                <!-- <button type="button" onclick="Next()">Next</button> -->
+                 <button type="button" onclick="showAnswer()">Answer</button>
+                 <button type="button" onclick="endGame()">End Game</button>
+            </div>
+        </div>
+    </div>
+
+    <button id="startButton" onclick="startGame()">Start Game</button>
+
+    <script src="app.js"></script>
+    <script>
+        function startGame() {
+            const music = document.getElementById('music');
+            music.play();
+            document.getElementById('startButton').style.display = 'none'; // Hide the button after starting the game
+        }
+    </script>
+</body>
+</html>
