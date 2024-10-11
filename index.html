@@ -7,6 +7,14 @@
     <link href="style.css" rel="stylesheet" />
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.min.css">
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.all.min.js"></script>
+    <style>
+        /* Keep input box white even when disabled */
+        input[disabled] {
+            background-color: white;
+            color: black;
+            border: 1px solid #ccc;
+        }
+    </style>
 </head>
 
 <body>
@@ -36,14 +44,13 @@
                 <p id="hint"></p>
             </div>
             <div id="form">
-                <input id="input" type="text" placeholder="Guess the correct word" />
+                <input id="input" type="text" placeholder="Guess the correct word" disabled />
             </div>
             <h3 id="output">Result:</h3>
             <div class="foot">
-                <button type="button" onclick="check()">Check</button>
-                <!-- <button type="button" onclick="Next()">Next</button> -->
-                 <button type="button" onclick="showAnswer()">Answer</button>
-                 <button type="button" onclick="endGame()">End Game</button>
+                <button type="button" onclick="check()" disabled>Check</button>
+                <button type="button" onclick="showAnswer()" disabled>Answer</button>
+                <button type="button" onclick="endGame()" disabled>End Game</button>
             </div>
         </div>
     </div>
@@ -55,7 +62,13 @@
         function startGame() {
             const music = document.getElementById('music');
             music.play();
-            document.getElementById('startButton').style.display = 'none'; // Hide the button after starting the game
+            document.getElementById('startButton').style.display = 'none'; // Hide the start button after starting the game
+            
+            // Enable input field and buttons
+            document.getElementById('input').disabled = false;
+            document.querySelectorAll('.foot button').forEach(button => {
+                button.disabled = false;
+            });
         }
     </script>
 </body>
